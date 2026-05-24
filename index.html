@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nowbrands — Wholesale Distribution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --accent: #F04E23;
+      --accent-dark: #D63E15;
+      --accent-light: #FFF3F0;
+      --bg: #FAF9F7;
+      --surface: #FFFFFF;
+      --surface-alt: #F4F3F0;
+      --border: #E7E5E4;
+      --border-strong: #D6D3D1;
+      --text-primary: #1C1917;
+      --text-secondary: #A7A7A7;
+      --text-muted: #C0BFBD;
+      --dark-bg: #1C1917;
+      --font: 'Outfit', sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --r-sm: 8px;
+      --r-md: 16px;
+      --r-lg: 24px;
+      --r-xl: 40px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: var(--font);
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .d1 {
+      transition-delay: 0.08s;
+    }
+
+    .d2 {
+      transition-delay: 0.16s;
+    }
+
+    .d3 {
+      transition-delay: 0.24s;
+    }
+
+    .d4 {
+      transition-delay: 0.32s;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(250, 249, 247, 0.94);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .nav-logo img {
+      height: 30px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .btn-nav {
+      padding: 0.55rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 100px;
+      font-size: 0.825rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-nav:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-nav:active {
+      transform: scale(0.97);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* mobile menu */
+    .mob-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--bg);
+      padding: 96px 2rem 2rem;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mob-menu.open {
+      display: flex;
+    }
+
+    .mob-menu a {
+      font-size: 1.625rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      display: block;
+    }
+
+    .mob-menu .mob-cta {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 100px;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      padding-top: 72px;
+    }
+
+    .hero-content {
+      padding: 3.5rem 0;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 1rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 100px;
+      font-size: 0.775rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      animation: fadeDown 0.6s var(--ease) both;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-dot 2s infinite;
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.625rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s var(--ease) 0.1s both;
+    }
+
+    .hero-h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 50ch;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.7s var(--ease) 0.2s both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 0.875rem;
+      align-items: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s var(--ease) 0.3s both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.875rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.875rem 2rem;
+      border: 1.5px solid var(--border-strong);
+      color: var(--text-primary);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline:active {
+      transform: scale(0.98);
+    }
+
+    /* hero visual — accordion */
+    .hero-visual {
+      height: 520px;
+      animation: fadeIn 0.9s var(--ease) 0.15s both;
+    }
+
+    .acc-strip {
+      display: flex;
+      gap: 10px;
+      height: 100%;
+      width: 100%;
+    }
+
+    .acc-panel {
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      cursor: pointer;
+      flex: 0 0 56px;
+      min-width: 56px;
+      transition: flex 0.7s var(--ease);
+    }
+
+    .acc-panel.active {
+      flex: 4;
+    }
+
+    .acc-panel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease);
+    }
+
+    .acc-panel.active img {
+      transform: scale(1.04);
+    }
+
+    .acc-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28, 25, 23, 0.75) 0%, rgba(0, 0, 0, 0.08) 55%);
+    }
+
+    .acc-label {
+      position: absolute;
+      color: #fff;
+      font-weight: 700;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: all 0.45s var(--ease);
+    }
+
+    .acc-panel:not(.active) .acc-label {
+      bottom: 76px;
+      left: 50%;
+      transform: translateX(-50%) rotate(90deg);
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .acc-panel.active .acc-label {
+      bottom: 22px;
+      left: 22px;
+      transform: none;
+      font-size: 0.95rem;
+      opacity: 1;
+    }
+
+    .acc-panel-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 100px;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.4s var(--ease) 0.3s;
+      pointer-events: none;
+    }
+
+    .acc-panel.active .acc-panel-tag {
+      opacity: 1;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--dark-bg);
+      padding: 3rem clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .stats-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.375rem;
+    }
+
+    .stat-label {
+      font-size: 0.825rem;
+      color: #A7A7A7;
+    }
+
+    /* ── SECTION BASE ── */
+    .section {
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .s-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .s-h2 {
+      font-size: clamp(1.875rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .s-sub {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 52ch;
+    }
+
+    /* ── CATEGORIES ── */
+    .cats-section {
+      background: var(--bg);
+    }
+
+    .cats-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      align-items: end;
+    }
+
+    .cats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.875rem;
+    }
+
+    /* asymmetric sizing — 8 items, 4-col grid */
+    .cat:nth-child(1) {
+      grid-column: span 2;
+    }
+
+    .cat:nth-child(6) {
+      grid-column: span 2;
+    }
+
+    .cat:nth-child(7) {
+      grid-column: span 2;
+    }
+
+    .cat:nth-child(8) {
+      grid-column: span 2;
+    }
+
+    .cat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1.375rem 1.25rem;
+      transition: all 0.3s var(--ease);
+      cursor: default;
+    }
+
+    .cat:hover {
+      border-color: rgba(240, 78, 35, 0.25);
+      box-shadow: 0 6px 28px rgba(240, 78, 35, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .cat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--r-sm);
+      background: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.875rem;
+    }
+
+    .cat-name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .cat-desc {
+      font-size: 0.725rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* ── WHY ── */
+    .why-section {
+      background: var(--surface-alt);
+    }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .why-sticky {
+      position: sticky;
+      top: 100px;
+    }
+
+    .why-bg-num {
+      font-size: 7rem;
+      font-weight: 800;
+      color: var(--border);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: -1.25rem;
+    }
+
+    .why-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .why-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1.625rem;
+      transition: all 0.3s var(--ease);
+    }
+
+    .why-card:hover {
+      border-color: rgba(240, 78, 35, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
+    }
+
+    .why-card.dark {
+      background: var(--dark-bg);
+      border-color: transparent;
+      grid-column: span 2;
+    }
+
+    .why-card.dark .wc-title {
+      color: #F5F4F1;
+    }
+
+    .why-card.dark .wc-body {
+      color: #A7A7A7;
+    }
+
+    .why-card.dark .wc-icon {
+      background: rgba(240, 78, 35, 0.15);
+    }
+
+    .wc-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.875rem;
+    }
+
+    .wc-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .wc-body {
+      font-size: 0.825rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ── COVERAGE ── */
+    .coverage-section {
+      background: var(--bg);
+    }
+
+    .cov-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .cov-card {
+      border-radius: var(--r-xl);
+      padding: 3rem 2.75rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .cov-dark {
+      background: var(--dark-bg);
+    }
+
+    .cov-orange {
+      background: var(--accent);
+    }
+
+    .cov-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .cov-dark .cov-tag {
+      background: rgba(255, 255, 255, 0.08);
+      color: #A8A29E;
+    }
+
+    .cov-orange .cov-tag {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .cov-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .cov-sub {
+      font-size: 0.85rem;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .cov-dark .cov-sub {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .cov-orange .cov-sub {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .cov-addr {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--r-sm);
+      padding: 0.875rem 1rem;
+    }
+
+    .cov-orange .cov-addr {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .cov-addr-text {
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .cov-dark .cov-addr-text {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .cov-orange .cov-addr-text {
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    /* ── PROCESS ── */
+    .process-section {
+      background: var(--surface-alt);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+
+    .p-step {
+      background: var(--surface);
+      padding: 2.5rem;
+    }
+
+    .p-step-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .p-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--r-sm);
+      background: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.375rem;
+    }
+
+    .p-title {
+      font-size: 1.075rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.625rem;
+    }
+
+    .p-body {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--bg);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-title {
+      font-size: 1.875rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.875rem;
+    }
+
+    .contact-sub {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 2.25rem;
+      max-width: 38ch;
+    }
+
+    .addr-card {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1.25rem;
+      background: var(--surface);
+      margin-bottom: 0.875rem;
+    }
+
+    .addr-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--r-sm);
+      flex-shrink: 0;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .addr-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .addr-text {
+      font-size: 0.825rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    /* form */
+    .form-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 2.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 1.125rem;
+    }
+
+    .form-label {
+      font-size: 0.775rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      padding: 0.7rem 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      font-family: var(--font);
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(240, 78, 35, 0.09);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: var(--r-sm);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: var(--font);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .form-submit:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .form-submit:active {
+      transform: scale(0.98);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark-bg);
+      padding: 4rem clamp(1.5rem, 5vw, 4rem) 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .f-logo img {
+      height: 26px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 1rem;
+    }
+
+    .f-tagline {
+      font-size: 0.825rem;
+      color: #A7A7A7;
+      line-height: 1.7;
+      max-width: 26ch;
+    }
+
+    .f-col-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6B6B6B;
+      margin-bottom: 1.125rem;
+    }
+
+    .f-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .f-links a {
+      font-size: 0.825rem;
+      color: #A7A7A7;
+      transition: color 0.2s;
+    }
+
+    .f-links a:hover {
+      color: #D6D3D1;
+    }
+
+    .footer-bottom {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding-top: 2rem;
+      gap: 1rem;
+    }
+
+    .f-copy {
+      font-size: 0.75rem;
+      color: #6B6B6B;
+    }
+
+    .f-copy:last-child {
+      text-align: right;
+    }
+
+    .f-powered {
+      font-size: 0.75rem;
+      color: #6B6B6B;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .f-powered a {
+      color: var(--accent);
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .f-powered a:hover {
+      opacity: 0.8;
+    }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes scaleUp {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.35;
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 96px;
+        padding-bottom: 3rem;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .cats-head {
+        grid-template-columns: 1fr;
+      }
+
+      .cats-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .cat:nth-child(n) {
+        grid-column: span 1;
+      }
+
+      .why-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .why-sticky {
+        position: static;
+      }
+
+      .cov-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .nav-links,
+      .btn-nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .why-card.dark {
+        grid-column: span 1;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo"><img src="Logo/logo-nowbrands.png" alt="Nowbrands"></a>
+    <ul class="nav-links">
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#coverage">Coverage</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-nav">Get in Touch</a>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mob-menu" id="mobMenu">
+    <a href="#categories" onclick="closeMob()">Categories</a>
+    <a href="#why" onclick="closeMob()">Why Us</a>
+    <a href="#coverage" onclick="closeMob()">Coverage</a>
+    <a href="#contact" onclick="closeMob()">Contact</a>
+    <a href="#contact" class="mob-cta" onclick="closeMob()">Get in Touch</a>
+  </div>
+
+  <!-- HERO -->
+  <section style="padding:0; background:var(--bg);">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Florida-Based Wholesale Distributor
+        </div>
+        <h1 class="hero-h1">
+          The brands your<br>business needs,<br><em>priced to grow.</em>
+        </h1>
+        <p class="hero-sub">
+          Nowbrands connects small businesses in Florida and across Central America with a wide range of quality
+          products — reliable supply, competitive pricing, and a partner who understands your market.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-primary">
+            Start Buying
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#categories" class="btn-outline">Browse Categories</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="acc-strip">
+          <div class="acc-panel" onmouseenter="accHover(0)">
+            <img src="resources/Images/PERSONAL CARE.jpeg" alt="Personal Care">
+            <div class="acc-overlay"></div>
+            <div class="acc-panel-tag">Personal Care</div>
+            <span class="acc-label">Personal Care</span>
+          </div>
+          <div class="acc-panel" onmouseenter="accHover(1)">
+            <img src="resources/Images/HOME KITCHEN.jpeg" alt="Home & Kitchen">
+            <div class="acc-overlay"></div>
+            <div class="acc-panel-tag">Home & Kitchen</div>
+            <span class="acc-label">Home & Kitchen</span>
+          </div>
+          <div class="acc-panel" onmouseenter="accHover(2)">
+            <img src="resources/Images/BABY PRODUCTS.jpeg" alt="Baby Products">
+            <div class="acc-overlay"></div>
+            <div class="acc-panel-tag">Baby Products</div>
+            <span class="acc-label">Baby Products</span>
+          </div>
+          <div class="acc-panel" onmouseenter="accHover(3)">
+            <img src="resources/Images/BEAUTY.jpeg" alt="Beauty">
+            <div class="acc-overlay"></div>
+            <div class="acc-panel-tag">Beauty</div>
+            <span class="acc-label">Beauty</span>
+          </div>
+          <div class="acc-panel active" onmouseenter="accHover(4)">
+            <img src="resources/Images/TECHNOLOGY.jpeg" alt="Technology">
+            <div class="acc-overlay"></div>
+            <div class="acc-panel-tag">Technology</div>
+            <span class="acc-label">Technology</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="reveal">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Product categories</div>
+      </div>
+      <div class="reveal d1">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Countries served</div>
+      </div>
+      <div class="reveal d2">
+        <div class="stat-num">B2B</div>
+        <div class="stat-label">Wholesale only</div>
+      </div>
+      <div class="reveal d3">
+        <div class="stat-num">FL</div>
+        <div class="stat-label">Doral, Florida hub</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="section cats-section" id="categories">
+    <div class="inner">
+      <div class="cats-head">
+        <div>
+          <p class="s-tag reveal">What We Carry</p>
+          <h2 class="s-h2 reveal d1">A broad catalog<br>built for resellers</h2>
+        </div>
+        <p class="s-sub reveal d2" style="align-self:end;">
+          Our product range spans over ten categories — from everyday essentials to specialty goods — so your business
+          can source what it needs from a single, trusted supplier.
+        </p>
+      </div>
+
+      <div class="cats-grid">
+        <!-- 1 Personal Care -->
+        <div class="cat reveal">
+          <div class="cat-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          </div>
+          <div class="cat-name">Personal Care & Health</div>
+          <div class="cat-desc">Hygiene, wellness & body care</div>
+        </div>
+        <!-- 2 Perfumes -->
+        <div class="cat reveal">
+          <div class="cat-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
+              <line x1="7" y1="7" x2="7.01" y2="7" />
+            </svg>
+          </div>
+          <div class="cat-name">Beauty</div>
+          <div class="cat-desc">Fragrance, skincare & cosmetics</div>
+        </div>
+        <!-- 5 Tools -->
+        <div class="cat reveal d1">
+          <div class="cat-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+            </svg>
+          </div>
+          <div class="cat-name">Working Tools</div>
+          <div class="cat-desc">Hand tools & accessories</div>
+        </div>
+        <!-- 6 Baby -->
+        <div class="cat reveal d2">
+          <div class="cat-icon">
+            <img src="resources/Icons/BABY ICON.png" alt="" style="width:22px;height:22px;object-fit:contain;filter:invert(40%) sepia(90%) saturate(600%) hue-rotate(340deg) brightness(95%);">
+          </div>
+          <div class="cat-name">Baby Products</div>
+          <div class="cat-desc">Care, feeding & accessories</div>
+        </div>
+        <!-- 7 Toys -->
+        <div class="cat reveal">
+          <div class="cat-icon">
+            <img src="resources/Icons/TOYS ICON.png" alt="" style="width:22px;height:22px;object-fit:contain;filter:invert(40%) sepia(90%) saturate(600%) hue-rotate(340deg) brightness(95%);">
+          </div>
+          <div class="cat-name">Toys</div>
+          <div class="cat-desc">Games, play & learning</div>
+        </div>
+        <!-- 8 Technology -->
+        <div class="cat reveal d1">
+          <div class="cat-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+          </div>
+          <div class="cat-name">Technology</div>
+          <div class="cat-desc">Gadgets & electronics</div>
+        </div>
+        <!-- 9 Gardening -->
+        <div class="cat reveal d2">
+          <div class="cat-icon">
+            <img src="resources/Icons/GARDENING ICON.png" alt="" style="width:22px;height:22px;object-fit:contain;filter:invert(40%) sepia(90%) saturate(600%) hue-rotate(340deg) brightness(95%);">
+          </div>
+          <div class="cat-name">Gardening</div>
+          <div class="cat-desc">Tools, pots & outdoor</div>
+        </div>
+        <!-- 10 Home & Kitchen -->
+        <div class="cat reveal d3">
+          <div class="cat-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </div>
+          <div class="cat-name">Home & Kitchen</div>
+          <div class="cat-desc">Cookware, storage & decor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY NOWBRANDS -->
+  <section class="section why-section" id="why">
+    <div class="inner">
+      <div class="why-layout">
+        <div class="why-sticky reveal">
+          <p class="s-tag">Why Nowbrands</p>
+          <h2 class="s-h2">Reasons to make us your supplier</h2>
+          <p class="s-sub" style="margin-top:1rem;">
+            We built Nowbrands to solve a real problem: small businesses struggling to find a reliable wholesale partner
+            who understands their market and can grow with them.
+          </p>
+        </div>
+        <div class="why-cards">
+          <div class="why-card dark reveal">
+            <div class="wc-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#F04E23" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <div class="wc-title">One source for everything</div>
+            <div class="wc-body">Ten-plus categories under one roof. Stop chasing multiple suppliers and consolidate
+              your purchasing with a single, versatile partner who can serve your full inventory needs.</div>
+          </div>
+          <div class="why-card reveal">
+            <div class="wc-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <div class="wc-title">Reliable Stock</div>
+            <div class="wc-body">Consistent availability so your shelves stay full. We manage supply proactively so
+              stockouts don't interrupt your business.</div>
+          </div>
+          <div class="why-card reveal d1">
+            <div class="wc-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              </svg>
+            </div>
+            <div class="wc-title">Reseller Pricing</div>
+            <div class="wc-body">Margins built for small businesses — not just big-box volume buyers. Competitive
+              pricing that keeps you ahead of the competition.</div>
+          </div>
+          <div class="why-card reveal d2">
+            <div class="wc-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 11 22 2 13 21 11 13 3 11" />
+              </svg>
+            </div>
+            <div class="wc-title">Export Expertise</div>
+            <div class="wc-body">Experienced in cross-border logistics to Central America. We handle the complexity of
+              international trade so you can focus on selling.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="section coverage-section" id="coverage">
+    <div class="inner">
+      <p class="s-tag reveal">Our Reach</p>
+      <h2 class="s-h2 reveal d1">Florida-rooted.<br>Central America-ready.</h2>
+      <div class="cov-grid">
+        <div class="cov-card cov-dark reveal">
+          <div class="cov-tag">
+            <svg width="6" height="6" fill="#A8A29E" viewBox="0 0 6 6">
+              <circle cx="3" cy="3" r="3" />
+            </svg>
+            United States
+          </div>
+          <h3 class="cov-title">Doral, Florida Hub</h3>
+          <p class="cov-sub">Our main operations center, strategically located in Miami-Dade — one of the busiest trade
+            corridors in the southeastern US and the primary gateway to Latin America.</p>
+          <div class="cov-addr">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.5)"
+              stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span class="cov-addr-text">2003 NW 79 Ave<br>Doral, FL 33122</span>
+          </div>
+        </div>
+        <div class="cov-card cov-orange reveal d1">
+          <div class="cov-tag">
+            <svg width="6" height="6" fill="rgba(255,255,255,0.7)" viewBox="0 0 6 6">
+              <circle cx="3" cy="3" r="3" />
+            </svg>
+            Central America
+          </div>
+          <h3 class="cov-title">Honduras Operations</h3>
+          <p class="cov-sub">Serving small businesses across Central America with direct export capabilities. We
+            understand regional demand and deliver products that move in local markets.</p>
+          <div class="cov-addr">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.8)"
+              stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span class="cov-addr-text">Col. Tara Bloque 6, Casa 33<br>San Pedro Sula, Honduras</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="display:none"><div>
+        <svg viewBox="0 0 520 720" xmlns="http://www.w3.org/2000/svg" class="americas-svg" aria-label="Map of the Americas">
+          <!--
+            Projection: x=(lon+180)*3.467, y=(85-lat)*5.103
+            Scale: 3.467px/° lon, 5.103px/° lat
+          -->
+
+          <!-- ALASKA -->
+          <polygon class="map-gray" points="41,107 52,127 104,138 139,127 135,76 110,66 85,66"/>
+
+          <!-- CANADA (mainland simplified) -->
+          <polygon class="map-gray" points="139,117 174,153 194,184 243,184 287,184 336,194 368,204 416,194 434,163 424,117 400,86 347,51 295,51 208,66 135,76"/>
+
+          <!-- USA MAINLAND -->
+          <path class="map-orange" d="M194,184 L243,184 L287,184 L336,194 L368,204 L371,209 L390,194 L381,214 L371,230 L360,245 L354,260 L344,270 L323,281 L316,286 L287,301 L263,281 L253,276 L229,270 L218,265 L201,240 L194,199 Z"/>
+          <!-- Florida peninsula -->
+          <path class="map-orange" d="M323,281 L340,286 L344,301 L347,311 L344,311 L338,301 L323,286 Z"/>
+
+          <!-- MEXICO -->
+          <path class="map-gray" d="M218,265 L229,270 L253,276 L263,281 L287,301 L287,332 L267,337 L242,322 L218,281 Z M267,337 L287,332 L320,327 L323,357 L290,357 L267,337 Z"/>
+
+          <!-- CUBA (elongated island) -->
+          <polygon class="map-gray" points="333,317 340,312 358,312 367,320 360,327 340,327"/>
+
+          <!-- GUATEMALA -->
+          <polygon class="map-orange" points="304,341 318,341 320,357 312,362 304,357 302,349"/>
+
+          <!-- BELIZE -->
+          <polygon class="map-orange" points="318,341 323,341 323,357 318,357 315,349"/>
+
+          <!-- HONDURAS -->
+          <polygon class="map-orange" points="304,357 323,357 336,352 338,362 323,367 304,362 302,360"/>
+
+          <!-- EL SALVADOR -->
+          <polygon class="map-orange" points="304,362 316,362 318,368 310,372 304,368"/>
+
+          <!-- NICARAGUA -->
+          <polygon class="map-orange" points="322,362 336,357 340,368 336,378 326,380 318,373 318,368"/>
+
+          <!-- COSTA RICA -->
+          <polygon class="map-orange" points="320,380 336,378 338,388 333,393 320,390 318,386"/>
+
+          <!-- PANAMA -->
+          <polygon class="map-orange" points="333,390 340,388 352,390 358,393 355,400 340,399 333,395"/>
+
+          <!-- COLOMBIA -->
+          <polygon class="map-gray" points="355,398 358,388 375,373 392,373 392,429 358,429"/>
+
+          <!-- VENEZUELA -->
+          <polygon class="map-gray" points="375,373 416,378 412,424 392,429 392,373"/>
+
+          <!-- GUYANA + SURINAME + FR.GUIANA (grouped) -->
+          <polygon class="map-gray" points="412,393 447,404 447,424 412,424"/>
+
+          <!-- ECUADOR -->
+          <polygon class="map-gray" points="344,429 364,429 364,455 347,455 344,434"/>
+
+          <!-- PERU -->
+          <polygon class="map-gray" points="344,429 371,409 371,480 385,526 358,526 344,475"/>
+
+          <!-- BRAZIL -->
+          <path class="map-gray" d="M371,409 L447,404 L502,409 L502,460 L492,511 L485,547 L440,602 L412,547 L385,526 L371,480 Z"/>
+
+          <!-- BOLIVIA -->
+          <polygon class="map-gray" points="371,480 385,480 413,480 419,541 399,547 385,547 381,511"/>
+
+          <!-- PARAGUAY -->
+          <polygon class="map-gray" points="409,541 419,541 430,551 430,578 416,578 409,557"/>
+
+          <!-- CHILE -->
+          <polygon class="map-gray" points="358,526 385,526 385,714 378,714 378,533"/>
+
+          <!-- ARGENTINA -->
+          <polygon class="map-gray" points="385,547 399,547 419,541 430,578 430,628 402,714 385,714"/>
+
+          <!-- URUGUAY -->
+          <polygon class="map-gray" points="419,592 436,602 436,617 419,617"/>
+
+          <!-- ── LABELS ── -->
+          <!-- Canada -->
+          <text x="285" y="148" class="map-label" text-anchor="middle" fill="#B0ABA6">CANADA</text>
+
+          <!-- USA -->
+          <circle cx="280" cy="235" r="4" fill="#F04E23"/>
+          <text x="280" y="231" class="map-label map-label-orange" text-anchor="middle">UNITED STATES</text>
+
+          <!-- Florida callout -->
+          <circle cx="342" cy="304" r="2.5" fill="white" stroke="#F04E23" stroke-width="1.5"/>
+          <line x1="342" y1="302" x2="368" y2="290" stroke="#F04E23" stroke-width="0.8" opacity="0.8"/>
+          <text x="370" y="289" class="map-label-sm map-label-orange" text-anchor="start">Florida</text>
+
+          <!-- Mexico -->
+          <text x="265" y="320" class="map-label-sm" text-anchor="middle" fill="#A0A0A0">MEXICO</text>
+
+          <!-- Central America callout -->
+          <circle cx="326" cy="375" r="2.5" fill="white"/>
+          <line x1="330" y1="370" x2="360" y2="348" stroke="white" stroke-width="0.7" opacity="0.8"/>
+          <text x="362" y="347" class="map-label map-label-orange" text-anchor="start">Central America</text>
+
+          <!-- Individual CA country labels -->
+          <text x="309" y="354" class="map-label-xs map-label-white" text-anchor="middle">GT</text>
+          <text x="321" y="352" class="map-label-xs map-label-white" text-anchor="middle">BZ</text>
+          <text x="320" y="363" class="map-label-xs map-label-white" text-anchor="middle">HN</text>
+          <text x="309" y="369" class="map-label-xs map-label-white" text-anchor="middle">SV</text>
+          <text x="328" y="373" class="map-label-xs map-label-white" text-anchor="middle">NI</text>
+          <text x="326" y="388" class="map-label-xs map-label-white" text-anchor="middle">CR</text>
+          <text x="343" y="396" class="map-label-xs map-label-white" text-anchor="middle">PA</text>
+
+          <!-- South America -->
+          <text x="420" y="500" class="map-label" text-anchor="middle" fill="#C0BFBD">SOUTH AMERICA</text>
+        </svg>
+
+        <!-- Legend -->
+        <div class="map-legend">
+          <div class="map-legend-item">
+            <span class="map-legend-dot map-legend-orange"></span>
+            <span>Active markets — USA &amp; Central America</span>
+          </div>
+          <div class="map-legend-item">
+            <span class="map-legend-dot map-legend-gray"></span>
+            <span>Rest of Americas</span>
+          </div>
+        </div>
+
+        <!-- Callout boxes -->
+        <div class="map-callouts">
+          <div class="map-callout reveal d1">
+            <div class="map-callout-flag">🇺🇸</div>
+            <div>
+              <strong>United States</strong>
+              <p>Doral, Florida — primary distribution hub</p>
+            </div>
+          </div>
+          <div class="map-callout reveal d2">
+            <div class="map-callout-flag">🌎</div>
+            <div>
+              <strong>Central America</strong>
+              <p>Guatemala · Belize · Honduras · El Salvador · Nicaragua · Costa Rica · Panama</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- PROCESS -->
+  <section class="section process-section" id="process">
+    <div class="inner">
+      <p class="s-tag reveal">How It Works</p>
+      <h2 class="s-h2 reveal d1">Simple to start.<br>Built to scale.</h2>
+      <div class="process-grid">
+        <div class="p-step reveal">
+          <div class="p-step-num">Step 01</div>
+          <div class="p-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
+          </div>
+          <h3 class="p-title">Reach Out</h3>
+          <p class="p-body">Fill out our contact form or send us a message. Tell us about your business, where you're
+            located, and which product categories interest you.</p>
+        </div>
+        <div class="p-step reveal d1">
+          <div class="p-step-num">Step 02</div>
+          <div class="p-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4" />
+              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+            </svg>
+          </div>
+          <h3 class="p-title">Get a Custom Quote</h3>
+          <p class="p-body">We review your needs and put together a personalized product catalog and pricing proposal
+            based on your volume and target market.</p>
+        </div>
+        <div class="p-step reveal d2">
+          <div class="p-step-num">Step 03</div>
+          <div class="p-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13" rx="1" />
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+              <circle cx="5.5" cy="18.5" r="2.5" />
+              <circle cx="18.5" cy="18.5" r="2.5" />
+            </svg>
+          </div>
+          <h3 class="p-title">Receive Your Order</h3>
+          <p class="p-body">We process and coordinate delivery or pickup. For exports, we manage the full logistics
+            chain so your products arrive safely and on schedule.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="inner">
+      <div class="contact-layout">
+        <div>
+          <p class="s-tag reveal">Contact</p>
+          <h2 class="contact-title reveal d1">Let's talk business.</h2>
+          <p class="contact-sub reveal d2">
+            Whether you're a shop owner in Florida or a business in Central America ready to import — we're here to help
+            you stock smarter.
+          </p>
+          <div class="addr-card reveal d2">
+            <div class="addr-icon">
+              <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <div>
+              <div class="addr-label">Florida Office</div>
+              <div class="addr-text">2003 NW 79 Ave, Doral, FL 33122</div>
+            </div>
+          </div>
+          <div class="addr-card reveal d3">
+            <div class="addr-icon">
+              <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 11 22 2 13 21 11 13 3 11" />
+              </svg>
+            </div>
+            <div>
+              <div class="addr-label">Honduras Office</div>
+              <div class="addr-text">Col. Tara Bloque 6, Casa 33<br>San Pedro Sula, Honduras</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-box reveal d1">
+          <form id="cForm" onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="fn">First Name</label>
+                <input class="form-input" type="text" id="fn" placeholder="Maria" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ln">Last Name</label>
+                <input class="form-input" type="text" id="ln" placeholder="Reyes" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="em">Email Address</label>
+              <input class="form-input" type="email" id="em" placeholder="maria@yourbusiness.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="biz">Business Name</label>
+              <input class="form-input" type="text" id="biz" placeholder="Your Business Name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="loc">Location</label>
+              <select class="form-select" id="loc">
+                <option value="">Where are you located?</option>
+                <option>Florida, USA</option>
+                <option>Honduras</option>
+                <option>Guatemala</option>
+                <option>El Salvador</option>
+                <option>Costa Rica</option>
+                <option>Nicaragua</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="msg">Message</label>
+              <textarea class="form-textarea" id="msg"
+                placeholder="Tell us about your business and which categories interest you..."></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="fBtn">
+              Send Message
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="f-logo"><img src="Logo/logo-nowbrands.png" alt="Nowbrands"></div>
+          <p class="f-tagline">Florida-based wholesale distributor connecting small businesses with quality products
+            across the US and Central America.</p>
+        </div>
+        <div>
+          <div class="f-col-title">Navigate</div>
+          <ul class="f-links">
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#why">Why Us</a></li>
+            <li><a href="#coverage">Coverage</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="f-col-title">Locations</div>
+          <ul class="f-links">
+            <li><a href="#">Doral, FL 33122</a></li>
+            <li><a href="#">San Pedro Sula, Honduras</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="f-col-title">Legal</div>
+          <ul class="f-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="f-copy">&copy; 2026 Nowbrands LLC. All rights reserved.</span>
+        <span class="f-powered">Powered by <a href="https://webooststudio.com" target="_blank" rel="noopener">WeBoost Studio</a></span>
+        <span class="f-copy">Wholesale Distribution &middot; Doral, Florida</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), { passive: true });
+
+    // Mobile menu
+    const hbg = document.getElementById('hbg');
+    const mob = document.getElementById('mobMenu');
+    hbg.addEventListener('click', () => mob.classList.toggle('open'));
+    function closeMob() { mob.classList.remove('open'); }
+
+    // Scroll reveal
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+    // Accordion hover
+    function accHover(i) {
+      document.querySelectorAll('.acc-panel').forEach((p, idx) => p.classList.toggle('active', idx === i));
+    }
+
+    // Form
+    function handleForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('fBtn');
+      btn.innerHTML = '<svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sent — we\'ll be in touch!';
+      btn.style.background = '#16a34a';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = 'Send Message <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+        btn.style.background = ''; btn.disabled = false;
+        document.getElementById('cForm').reset();
+      }, 3500);
+    }
+  </script>
+</body>
+
+</html>
